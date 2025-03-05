@@ -24,7 +24,6 @@ import sys
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
 goal_dir=current_dir[:-29]+"python_qrcode\\qrcode"
-print(goal_dir)
 sys.path.append(goal_dir)
 
 from main import QRCode
@@ -37,17 +36,9 @@ from constants import (  # noqa
     ERROR_CORRECT_H,
 )
 def run_example(data="http://www.lincolnloop.com", *args, **kwargs):
-    """
-    Build an example QR Code and display it.
-
-    There's an even easier way than the code here though: just use the ``make``
-    shortcut.
-    """
     qr = QRCode(*args, **kwargs)
     qr.add_data(data)
-
     im = qr.make_image()
-    #im.show()
     im.save('../my_qrcode/src/image/output.png')
 
 
